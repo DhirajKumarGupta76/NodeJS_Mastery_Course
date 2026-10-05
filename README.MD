@@ -175,3 +175,115 @@ import dns from 'dns'
 dns.setServers(["1.1.1.1","8.8.8.8"])
 
 
+## for Set any project install all dependancy in terminal 
+like ..
+| Priority | Command                  | Purpose                     |
+| -------: | ------------------------ | --------------------------- |
+|      ⭐⭐⭐ | `node -v`                | Check Node version          |
+|      ⭐⭐⭐ | `node server.js`         | Run Node application        |
+|      ⭐⭐⭐ | `npm init -y`            | Create Node project         |
+|      ⭐⭐⭐ | `npm install`            | Install dependencies        |
+|      ⭐⭐⭐ | `npm install express`    | Install Express             |
+|      ⭐⭐⭐ | `npm install mongoose`   | Install MongoDB ODM         |
+|      ⭐⭐⭐ | `npm install dotenv`     | Environment variables       |
+|      ⭐⭐⭐ | `npm install cors`       | CORS                        |
+|      ⭐⭐⭐ | `npm install -D nodemon` | Auto restart                |
+|      ⭐⭐⭐ | `nodemon server.js`      | Run development server      |
+|      ⭐⭐⭐ | `npm run dev`            | Run dev script              |
+|      ⭐⭐⭐ | `npm start`              | Run production/start script |
+|       ⭐⭐ | `npm uninstall package`  | Remove package              |
+|       ⭐⭐ | `npm update`             | Update dependencies         |
+|       ⭐⭐ | `npm audit`              | Check vulnerabilities       |
+|       ⭐⭐ | `npx ...`                | Execute package             |
+|       ⭐⭐ | `npm list --depth=0`     | See installed packages      |
+|       ⭐⭐ | `npm outdated`           | Find outdated packages      |
+
+
+## Set required configuration parameters && Multer (Project 2)
+
+User uploads an image → Multer receives it → Cloudinary stores the image → MongoDB stores image information → EJS displays the uploaded image.
+
+You can set the required configuration parameters, cloud_name, api_key and api_secret either using the CLOUDINARY_URL environment variable, or using the config method in your code.
+
+To define the CLOUDINARY_URL environment variable:
+
+Copy the API environment variable format from the API Keys page of the Cloudinary Console Settings.
+Replace <your_api_key> and <your_api_secret> with your actual values. Your cloud name is already correctly included in the format.
+
+User selects image
+       ↓
+     React
+       ↓
+    Multer
+       ↓
+  Node.js/Express
+       ↓
+   Cloudinary
+       ↓
+ Image stored online
+       ↓
+ Cloudinary URL saved in MongoDB
+
+
+ | Tool           | Job                                         |
+| -------------- | ------------------------------------------- |
+| **Multer**     | Receives the uploaded file                  |
+| **Cloudinary** | Stores/manages the file online              |
+| **MongoDB**    | Stores the file's URL and other information |
+
+
+1. Complete project flow
+                  USER
+                   │
+                   │ Select image
+                   ▼
+             ┌─────────────┐
+             │   EJS Page  │
+             │  index.ejs  │
+             └──────┬──────┘
+                    │
+                    │ POST /upload
+                    │ multipart/form-data
+                    ▼
+             ┌─────────────┐
+             │  Express.js │
+             │   Server    │
+             └──────┬──────┘
+                    │
+                    ▼
+             ┌─────────────┐
+             │   Multer    │
+             │             │
+             │ Receives the│
+             │    image    │
+             └──────┬──────┘
+                    │
+                    │ Temporary file
+                    ▼
+             ┌─────────────┐
+             │  Cloudinary │
+             │             │
+             │ Stores the  │
+             │    image    │
+             └──────┬──────┘
+                    │
+                    │ Returns
+                    │ public_id
+                    │ secure_url
+                    ▼
+             ┌─────────────┐
+             │   MongoDB   │
+             │             │
+             │ Stores image│
+             │ information │
+             └──────┬──────┘
+                    │
+                    │ Image URL
+                    ▼
+             ┌─────────────┐
+             │    EJS      │
+             │  index.ejs  │
+             └──────┬──────┘
+                    │
+                    ▼
+              Display Image

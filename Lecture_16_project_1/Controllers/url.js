@@ -1,7 +1,9 @@
 import { Url } from "../Models/Url.js"
+//install shortid packages in terminal 
 import shortid from "shortid";
 
 export const shortUrl = async (req,res)=>{
+  //get longurl from terminal;
  const longUrl = req.body.longUrl;
  const shortCode = shortid.generate();
 

@@ -1,6 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose';
 import { shortUrl, getOriginalUrl } from "./Controllers/url.js";
+//npm i express,ejs,mongoose in terminals;
+
+import dns from 'dns'
+dns.setServers(["1.1.1.1","8.8.8.8"])
 
 const app = express();
 
@@ -8,9 +12,9 @@ app.use(express.urlencoded({extended:true}))
 
 mongoose
   .connect(
-    "mongodb+srv://codesnippet02:nq0sdJL2Jc3QqZba@cluster0.zmf40.mongodb.net/",
+    "mongodb+srv://dhirubhaig413_db_user:Qc0vy7B1YeNYUWso@cluster0.viotox6.mongodb.net/",
     {
-      dbName: "NodeJs_Mastery_Course",
+      dbName: "NodeJs_Mastery_Course_01",
     }
   )
   .then(() => console.log("MongoDb Connected..!"))
@@ -30,3 +34,7 @@ mongoose
 
 const port = 1000;
 app.listen(port,()=>console.log(`server is running on port ${port}`))
+
+
+// "mongodb+srv://dhirubhaig413_db_user:Qc0vy7B1YeNYUWso@cluster0.viotox6.mongodb.net/"
+// "mongodb+srv://codesnippet02:nq0sdJL2Jc3QqZba@cluster0.zmf40.mongodb.net/"

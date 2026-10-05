@@ -3,10 +3,14 @@
 // Express is used to create the server and handle routes.
 
 
+
 // Import Mongoose
 // Mongoose is used to connect Node.js with MongoDB
 // and work with MongoDB data using models.
 import mongoose from "mongoose";
+
+import dns from 'dns'
+dns.setServers(["1.1.1.1","8.8.8.8"])
 
 // Import the userRegister controller
 // This function will handle the registration form submission.
