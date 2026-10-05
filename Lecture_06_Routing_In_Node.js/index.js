@@ -1,7 +1,8 @@
 import http from 'http'
 
+//A route defines what should happen when a client requests a particular URL.
 const server = http.createServer((req,res)=>{
-    // console.log(req.url)
+//     console.log(req.url)
 // res.end('<h1>Your request has been accepted</h1>')
 
 if(req.url === '/wdm'){

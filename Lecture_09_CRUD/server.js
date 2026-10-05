@@ -1,7 +1,7 @@
 import express from 'express'
 
 const app = express();
-
+//Operation::
 // C = Create => POST (method)
 // R = Read => GET (method)
 // U = Update => PUT (method)

@@ -28,7 +28,7 @@ const url = path.join(dir,'./index.html')
 
 console.log("full path = ",url)
 
-const name = 'ram'
+// const name = 'ram' ->uses templete engine
 
 res.sendFile(url)
 

@@ -3,8 +3,9 @@
 import path from 'path'
 
 // join two or more file
+//files join =  \path\index.py\file.java
 const fullPath = path.join('/path','index.py','file.java')
-// console.log("files join = ",fullPath)
+console.log("files join = ",fullPath)
 
 // index.py, test.java
 
