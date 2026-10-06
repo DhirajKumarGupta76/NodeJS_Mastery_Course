@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import multer from "multer";
 import path from "path";
 
+import dns from 'dns'
+dns.setServers(["1.1.1.1","8.8.8.8"])
+
 const app = express();
 
 app.use(express.urlencoded({extended:true}))
@@ -10,16 +13,16 @@ app.use(express.urlencoded({extended:true}))
 import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({
-  cloud_name: "dfxc3sati",
-  api_key: "787799863893888",
-  api_secret: "d7nIXfqJJu_Gml_EMgIhY5lRE98",
+  cloud_name: "t1pjlrc0",
+  api_key: "683876168373323",
+  api_secret: "t_0ZPd28btFvvECtw1PPSca1S64",
 });
 
 mongoose
   .connect(
-    "mongodb+srv://codesnippet02:nq0sdJL2Jc3QqZba@cluster0.zmf40.mongodb.net/",
+    "mongodb+srv://dhirubhaig413_db_user:Qc0vy7B1YeNYUWso@cluster0.viotox6.mongodb.net/",
     {
-      dbName: "NodeJs_Mastery_Course",
+      dbName: "NodeJs_Mastery_Course_thisway",
     }
   )
   .then(() => console.log("MongoDb Connected..!"))
@@ -36,7 +39,7 @@ app.get("/register", (req, res) => {
 });
 
 const storage = multer.diskStorage({
-  //   destination: "./public/uploads",
+   destination: "./public/uploads",
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + path.extname(file.originalname);
     cb(null, file.fieldname + "-" + uniqueSuffix);
@@ -55,7 +58,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("user", userSchema);
-
+//upload on vs code path 
 app.post("/register", upload.single("file"), async (req, res) => {
   const file = req.file.path;
 

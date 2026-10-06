@@ -1,3 +1,5 @@
+## Lecture_17_Project_02 is main root of this tutorials
+
 ## What is Node.js
  Node.js is a JavaScript runtime that allows you to run JavaScript outside the browser.
 
@@ -199,6 +201,8 @@ like ..
 |       ⭐⭐ | `npm outdated`           | Find outdated packages      |
 
 
+
+
 ## Set required configuration parameters && Multer (Project 2)
 
 User uploads an image → Multer receives it → Cloudinary stores the image → MongoDB stores image information → EJS displays the uploaded image.
@@ -206,6 +210,8 @@ User uploads an image → Multer receives it → Cloudinary stores the image →
 You can set the required configuration parameters, cloud_name, api_key and api_secret either using the CLOUDINARY_URL environment variable, or using the config method in your code.
 
 To define the CLOUDINARY_URL environment variable:
+//npm install multer cloudinary
+
 
 Copy the API environment variable format from the API Keys page of the Cloudinary Console Settings.
 Replace <your_api_key> and <your_api_secret> with your actual values. Your cloud name is already correctly included in the format.
@@ -286,4 +292,17 @@ User selects image
              └──────┬──────┘
                     │
                     ▼
-              Display Image
+              Display Image 
+
+
+## To resolve error
+
+try {
+   ...
+} catch (error) {
+   console.error(error);
+}
+
+
+
+
