@@ -1,5 +1,9 @@
 ## Lecture_17_Project_02 is main root of this tutorials
 
+## Dns server change
+import dns from 'dns'
+dns.setServers(["1.1.1.1","8.8.8.8"])
+
 ## What is Node.js
  Node.js is a JavaScript runtime that allows you to run JavaScript outside the browser.
 
@@ -173,8 +177,7 @@ Think of server.js as the main controller of your Node.js application:
 
 ## To fix MongoDb Coneection;
 
-import dns from 'dns'
-dns.setServers(["1.1.1.1","8.8.8.8"])
+
 
 
 ## for Set any project install all dependancy in terminal 
